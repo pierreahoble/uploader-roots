@@ -21,7 +21,11 @@
          
          
               
-        <form action="{{url('uploaders')}}" method="POST" enctype="multipart/form-data"> 
+        <form action="{{url('uploaders')}}" method="POST" enctype="multipart/form-data">
+            
+
+            
+            
             
             <div class="row mb-4">
                 <div class="col-md-12">
@@ -60,7 +64,7 @@
     $(document).ready(function(){
         $('#file').change(function(){
             var fileName = $(this).val();
-            console.log(fileName);
+            // console.log(fileName);
             var names = [];
             for (var i = 0; i < $(this).get(0).files.length; ++i) {
                 names.push($(this).get(0).files[i].name);
@@ -78,7 +82,7 @@
                     
                     <div class="mb-3">
                         <label  class="form-label">Categotie du fichier</label>
-                        <select name="cat_${i}" id="" class="form-select" required>
+                        <select name="cat_${i}" id="cat_${i}" class="form-select" required>
                             <option value="">Choisir la categorie du fichier</option>
                             <option value="Commerciale">Commerciale</option>
                             <option value="Comptable">Comptable</option>
@@ -98,9 +102,15 @@
             </div>
 
             `)
-                console.log(names[i])
+                // console.log(names[i])
             }
         })
+
+        $('#cat_0').change(function(){
+            console.log('ok')
+        })
+
+
     })
    
 </script>

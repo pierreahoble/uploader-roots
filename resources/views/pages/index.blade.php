@@ -16,6 +16,19 @@
         <div class="card-body">
 
             <form action="{{url('uploaders')}}" method="POST" enctype="multipart/form-data"> 
+
+                {{-- <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Choisire la categorie</label>
+                          <select name="catep" id="" class="form-control">
+                              @foreach ($souscategories as $souscategory)
+                                <option value="{{$souscategory->libelle}}"> {{$souscategory->libelle}} </option>                                  
+                              @endforeach
+                          </select>
+                        </div>
+                    </div>
+                </div> --}}
             
                 <div class="row mb-4">
                     <div class="col-md-12">
@@ -54,24 +67,33 @@
 <script>
 
 
+// <div class="col-md-3">
+//                     <div class="mb-3">
+//                         <label  class="form-label">Sous Categorie du fichier</label>
+//                         <select name="souscat_${i}" id="souscat_${i}" class="form-control">
+//                         </select>
+//                     </div>
+//                 </div>
+
+
     $(document).ready(function(){
         $('#file').change(function(){
             var fileName = $(this).val();
-            console.log(fileName);
+            // console.log(fileName);
             var names = [];
             for (var i = 0; i < $(this).get(0).files.length; ++i) {
                 names.push($(this).get(0).files[i].name);
             $('#form').append(`
 
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Nom du fichier</label>
                       <input type="text" class="form-control" value="${names[i]}" disabled>
                     </div>
                 </div>
     
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label  class="form-label">Categorie du fichier</label>
                         <select name="cat_${i}" id="cat_${i}" class="form-control categorie" required>
@@ -83,15 +105,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label  class="form-label">Sous Categorie du fichier</label>
-                        <select name="souscat_${i}" id="souscat_${i}" class="form-control">
-                        </select>
-                    </div>
-                </div>
+               
     
-                <div class="col-md-3">
+                <div class="col-md-4">
                     
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Description du Fichier</label>
@@ -102,7 +118,7 @@
             </div>
 
             `)
-                console.log(names[i])
+                // console.log(names[i])
             }
         })
 

@@ -19,7 +19,7 @@
                 <thead>
                     <tr>
                         <th>Nom du Fichier</th>
-                        {{-- <th>Categorie</th> --}}
+                        <th>Categorie du Fichier</th>
                         <th>Description</th>
                         <th>Voir</th>
                     </tr>
@@ -30,6 +30,7 @@
                         
                     <tr>
                         <td> {{$file->nom_fichier}}</td>
+                        <td> {{ $file->categorie->libelle}} </td>
                         <td> {{$file->description_fichier}} </td>
                         <td>
                             <a href="{{url('voir',$file->id)}}" target="_blanc" class="btn btn-info btn-circle btn-sm">

@@ -12,8 +12,10 @@ class FileController extends Controller
     public function index()
     {
         $categories = Category::all();
+        $souscategories = Souscategory::all();
         return view('pages.index',[
-            'categories' => $categories
+            'categories' => $categories,
+            'souscategories'=>$souscategories
         ]);
     }
 
@@ -53,6 +55,7 @@ class FileController extends Controller
 
     public function liste()
     {
+        // return Fichier::find(6)->categorie;
         $files = Fichier::all();
         return view('pages.liste',[
             'files'=> $files
